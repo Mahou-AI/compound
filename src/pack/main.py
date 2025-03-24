@@ -1,7 +1,6 @@
-from os import walk, environ
+from os import walk
 from os.path import join, relpath
 from pathlib import Path
-from sys import argv
 from zipfile import ZipFile
 
 
@@ -20,15 +19,9 @@ def compress_folder(
 
 
 if __name__ == "__main__":
-    dest: str
-    if "OUTPUT_PATH" in environ:
-        dest = environ["OUTPUT_PATH"]
-    elif "-o" in argv:
-        dest = argv[argv.index("-o") + 1]
-    else:
-        dest = input("output: ")
-
-    src = Path(__file__).parent.parent.joinpath("compound")
-    requirements = Path(__file__).parent.parent.parent.joinpath("requirements.txt")
+    project_root = Path(__file__).parent.parent.parent
+    dest = project_root.joinpath("app.zip")
+    src = project_root.joinpath("src", "compound")
+    requirements = project_root.joinpath("requirements.txt")
 
     compress_folder(src, dest, requirements)
