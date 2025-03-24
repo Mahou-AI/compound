@@ -1,4 +1,13 @@
-import bootstrap
+from fastapi import FastAPI
+import transformers as transformers
+import uvicorn
+
+app = FastAPI()
 
 
-bootstrap.run()
+@app.get("/")
+def root():
+    return "Hello world from `Compound`!"
+
+
+uvicorn.run(f"{__name__}:app")
