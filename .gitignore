@@ -1,3 +1,5 @@
 app.zip
 .venv
 **/__pycache__
+**/cache
+**/bundle

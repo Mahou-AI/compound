@@ -6,6 +6,7 @@ if not exist ".venv" (
     echo venv has been created.
 ) 
 SET python=%~dp0.venv\Scripts\python.exe
+@REM SET source=https://mirror.sjtu.edu.cn/pypi/web/simple
 SET source=https://pypi.org/simple
 echo use "%python%"
 echo source "%source%"

@@ -1,8 +1,15 @@
-from fastapi import FastAPI
-import transformers as transformers
+from driver import get_driver
+
+# features
+import pipeline as pipeline
+import storage as storage
+import bundle as bundle
+
+# bootstrap
 import uvicorn
 
-app = FastAPI()
+
+app = get_driver()
 
 
 @app.get("/")
